@@ -1,11 +1,11 @@
-Opening Trade:   3.3700
-Threshold Trade: 3.4205
+Opening Trade:   3.3500
+Threshold Trade: 3.4002
 
 Threshold Met? True
-	Value:       3.4245
-	Time Occur.: 2015-04-19 09:49:39
-	Time Elaps.: 19m37s
+	Value:       3.41
+	Time Occur.: 2015-04-27 10:00:57
+	Time Elaps.: 30m56s
 
-Max Trade in First Hour: 3.5200
+Max Trade in First Hour: 3.4100
 
 Upward Trend in First Hour? True
