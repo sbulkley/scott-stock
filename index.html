@@ -10,7 +10,7 @@
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <div id="title">
+        <div class="header" id="title">
             <span id="ticker">UWTI</span><br>
             <span id="date">
                 <script type="text/javascript">
@@ -19,15 +19,15 @@
             </span>
         </div>
         
-        <div id="details">
-            <span class="item">Opening Trade: </span><span class="value">3.3700</span><br>
-            <span class="item">Threshold Trade: </span><span class="value">3.4205</span><br>
-            <span class="item">Threshold Met? </span><span class="value">True</span><br>
-            <span class="subitem">&nbsp;&nbsp;&nbsp;Value: </span><span class="subvalue">3.4245</span><br>
-            <span class="subitem">&nbsp;&nbsp;&nbsp;Time Occur.: </span><span class="subvalue">2015-04-19 09:49:39</span><br>
-            <span class="subitem">&nbsp;&nbsp;&nbsp;Time Elaps.: </span><span class="subvalue">19m37s</span><br>
-            <span class="item">Max Trade in First Hour: </span><span class="value">3.5200</span><br>
-            <span class="item">Upward Trend in First Hour? </span><span class="value">True</span>
+        <div class="header" id="details">
+            <span class="item">Opening Trade: </span><span class="value" id="openingTrade"></span><br>
+            <span class="item">Threshold Trade: </span><span class="value" id="thresholdTrade"></span><br>
+            <span class="item">Threshold Met? </span><span class="value" id="thresholdMet"></span><br>
+            <span class="subitem">&nbsp;&nbsp;&nbsp;Value: </span><span class="subvalue" id="value"></span><br>
+            <span class="subitem">&nbsp;&nbsp;&nbsp;Time Occur: </span><span class="subvalue" id="timeOccur"></span><br>
+            <span class="subitem">&nbsp;&nbsp;&nbsp;Time Elaps: </span><span class="subvalue" id="timeElaps"></span><br>
+            <span class="item">Max Trade in First Hour: </span><span class="value" id="maxTrade"></span><br>
+            <span class="item">Upward Trend in First Hour? </span><span class="value" id="upwardTrend"></span>
         </div>
         
         <div id="plot">
@@ -35,5 +35,19 @@
         </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>
+            $(function(){
+                $.get("info/currentText.json", function(data) {
+                    $("#openingTrade").html(data.firstTrade);
+                    $("#thresholdTrade").html(data.thresholdTrade);
+                    $("#thresholdMet").html(data.thresholdMet);
+                    $("#value").html(data.value);
+                    $("#timeOccur").html(data.timeOccur);
+                    $("#timeElaps").html(data.timeElaps);
+                    $("#maxTrade").html(data.maxTrade);
+                    $("#upwardTrend").html(data.upwardTrend);
+                });
+            });
+        </script>
     </body>
 </html>
